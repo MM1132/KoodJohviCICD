@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: "https://github.com/MM1132/KoodJohviCICD.git"
-                echo '/kj_deployments/robert_${env.BRANCH_NAME}'
+                echo "/kj_deployments/robert_${env.BRANCH_NAME}"
             }
         }
 
@@ -18,8 +18,8 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
-                sh 'mkdir -p /kj_deployments/robert_${env.BRANCH_NAME}'
-                sh 'mv dist/kood-johvi-cicd/browser/* /kj_deployments/robert_${env.BRANCH_NAME}'
+                sh "mkdir -p /kj_deployments/robert_${env.BRANCH_NAME}"
+                sh "mv dist/kood-johvi-cicd/browser/* /kj_deployments/robert_${env.BRANCH_NAME}"
             }
         }
     }
