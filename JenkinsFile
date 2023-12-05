@@ -10,6 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: "https://github.com/MM1132/KoodJohviCICD.git"
+                echo '/kj_deployments/robert_${env.BRANCH_NAME}'
             }
         }
 
